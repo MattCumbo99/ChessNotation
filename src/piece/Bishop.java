@@ -7,12 +7,12 @@ public class Bishop implements ChessPiece {
 
     private boolean hasMoved;
 
-    Bishop(PieceColor color) {
+    public Bishop(PieceColor color) {
         pieceColor = color;
         hasMoved = false;
     }
 
-    Bishop(PieceColor color, boolean hasMoved) {
+    public Bishop(PieceColor color, boolean hasMoved) {
         pieceColor = color;
         this.hasMoved = hasMoved;
     }

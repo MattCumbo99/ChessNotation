@@ -1,18 +1,18 @@
 package piece;
 
-public class Knight implements ChessPiece {
+public class King implements ChessPiece {
 
     private final PieceColor pieceColor;
-    private final PieceType pieceType = PieceType.KNIGHT;
+    private final PieceType pieceType = PieceType.KING;
 
     private boolean hasMoved;
 
-    public Knight(PieceColor color) {
+    public King(PieceColor color) {
         pieceColor = color;
         hasMoved = false;
     }
 
-    public Knight(PieceColor color, boolean hasMoved) {
+    public King(PieceColor color, boolean hasMoved) {
         pieceColor = color;
         this.hasMoved = hasMoved;
     }
@@ -39,15 +39,15 @@ public class Knight implements ChessPiece {
 
     @Override
     public String getNotationSymbol() {
-        return "N";
+        return "K";
     }
 
     @Override
     public char getIcon() {
         if (pieceColor == PieceColor.BLACK) {
-            return '♞';
+            return '♚';
         }
 
-        return '♘';
+        return '♔';
     }
 }

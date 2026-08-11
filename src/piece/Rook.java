@@ -7,12 +7,12 @@ public class Rook implements ChessPiece {
 
     private boolean hasMoved;
 
-    Rook(PieceColor color) {
+    public Rook(PieceColor color) {
         pieceColor = color;
         hasMoved = false;
     }
 
-    Rook(PieceColor color, boolean hasMoved) {
+    public Rook(PieceColor color, boolean hasMoved) {
         pieceColor = color;
         this.hasMoved = hasMoved;
     }

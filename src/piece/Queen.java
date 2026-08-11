@@ -7,12 +7,12 @@ public class Queen implements ChessPiece {
 
     private boolean hasMoved;
 
-    Queen(PieceColor color) {
+    public Queen(PieceColor color) {
         pieceColor = color;
         hasMoved = false;
     }
 
-    Queen(PieceColor color, boolean hasMoved) {
+    public Queen(PieceColor color, boolean hasMoved) {
         pieceColor = color;
         this.hasMoved = hasMoved;
     }

@@ -7,12 +7,12 @@ public class Pawn implements ChessPiece {
 
     private boolean hasMoved;
 
-    Pawn(PieceColor color) {
+    public Pawn(PieceColor color) {
         pieceColor = color;
         hasMoved = false;
     }
 
-    Pawn(PieceColor color, boolean hasMoved) {
+    public Pawn(PieceColor color, boolean hasMoved) {
         pieceColor = color;
         this.hasMoved = hasMoved;
     }
