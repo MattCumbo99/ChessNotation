@@ -1,0 +1,53 @@
+package piece;
+
+public class Rook implements ChessPiece {
+
+    private final PieceColor pieceColor;
+    private final PieceType pieceType = PieceType.ROOK;
+
+    private boolean hasMoved;
+
+    Rook(PieceColor color) {
+        pieceColor = color;
+        hasMoved = false;
+    }
+
+    Rook(PieceColor color, boolean hasMoved) {
+        pieceColor = color;
+        this.hasMoved = hasMoved;
+    }
+
+    @Override
+    public PieceColor getColor() {
+        return pieceColor;
+    }
+
+    @Override
+    public PieceType getPieceType() {
+        return pieceType;
+    }
+
+    @Override
+    public boolean hasMoved() {
+        return hasMoved;
+    }
+
+    @Override
+    public void setHasMoved(boolean hasMoved) {
+        this.hasMoved = hasMoved;
+    }
+
+    @Override
+    public String getNotationSymbol() {
+        return "R";
+    }
+
+    @Override
+    public char getIcon() {
+        if (pieceColor == PieceColor.BLACK) {
+            return '♜';
+        }
+
+        return '♖';
+    }
+}
