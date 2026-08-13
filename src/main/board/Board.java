@@ -2,7 +2,9 @@ package main.board;
 
 import main.piece.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -60,6 +62,31 @@ public class Board {
         }
 
         return pieces;
+    }
+
+    /**
+     * Gets position data of every piece of a specified type. An empty list indicates no pieces matched
+     * the input.
+     *
+     * @param color Piece color.
+     * @param pieceType Pieces to identify.
+     * @return List of positions being occupied.
+     */
+    public List<Position> getPositionsOf(PieceColor color, PieceType pieceType) {
+        List<Position> positions = new ArrayList<>();
+
+        for (char file = 'a'; file <= 'h'; file++) {
+            for (int rank = 1; rank <= 8; rank++) {
+                Position pos = new Position(file, rank);
+                ChessPiece piece = getPieceAt(pos);
+
+                if (piece != null && piece.getColor() == color && piece.getPieceType() == pieceType) {
+                    positions.add(pos);
+                }
+            }
+        }
+
+        return positions;
     }
 
     /**
