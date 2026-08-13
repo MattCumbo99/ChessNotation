@@ -50,4 +50,9 @@ public class Bishop implements ChessPiece {
 
         return '♗';
     }
+
+    @Override
+    public int getPieceValue() {
+        return 3;
+    }
 }
