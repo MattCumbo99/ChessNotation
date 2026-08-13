@@ -5,6 +5,9 @@ import main.piece.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * An object representing a Chess board.
+ */
 public class Board {
     private final ChessPiece[][] grid = new ChessPiece[8][8];
 
