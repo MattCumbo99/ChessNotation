@@ -1,5 +1,7 @@
 package main.board;
 
+import java.util.Optional;
+
 /**
  * Contains file and rank information about a square on a main.board.
  *
@@ -8,7 +10,7 @@ package main.board;
  */
 public record Position(char file, int rank) {
     public Position {
-        if (file < 'a' || file > 'h' || rank < 1 || rank > 8) {
+        if (isInvalid(file, rank)) {
             throw new IllegalArgumentException(
                     String.format("Invalid chess square: %c%d", file, rank)
             );
@@ -32,6 +34,28 @@ public record Position(char file, int rank) {
      */
     public int rankIndex() {
         return rank - 1;
+    }
+
+    /**
+     * Retrieves a destination position from this origin.
+     *
+     * @param deltaFile File offset.
+     * @param deltaRank Rank offset.
+     * @return Optional position, populated if within bounds of standard board.
+     */
+    public Optional<Position> add(int deltaFile, int deltaRank) {
+        char newFile = (char) (this.file + deltaFile);
+        int newRank = this.rank + deltaRank;
+
+        if (isInvalid(newFile, newRank)) {
+            return Optional.empty();
+        }
+
+        return Optional.of(new Position(newFile, newRank));
+    }
+
+    private boolean isInvalid(char file, int rank) {
+        return file < 'a' || file > 'h' || rank < 1 || rank > 8;
     }
 
     @Override

@@ -80,7 +80,7 @@ public class Board {
                 Position pos = new Position(file, rank);
                 ChessPiece piece = getPieceAt(pos);
 
-                if (piece != null && piece.getColor() == color && piece.getPieceType() == pieceType) {
+                if (piece != null && piece.getPieceColor() == color && piece.getPieceType() == pieceType) {
                     positions.add(pos);
                 }
             }
@@ -104,7 +104,7 @@ public class Board {
         for (ChessPiece[] row : grid) {
             for (ChessPiece piece : row) {
                 if (piece != null) {
-                    if (piece.getColor() == PieceColor.WHITE) {
+                    if (piece.getPieceColor() == PieceColor.WHITE) {
                         difference += piece.getPieceValue();
                     } else {
                         difference -= piece.getPieceValue();
