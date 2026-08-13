@@ -266,6 +266,45 @@ public class Board {
         System.out.println(filesStrb);
     }
 
+    /**
+     * Prints this board to console, with the black side at the bottom.
+     */
+    public void printFlipped() {
+        for (int i = 0; i < grid.length; i++) {
+            System.out.println(gridLine());
+
+            StringBuilder strb = new StringBuilder();
+            // Rank number
+            strb.append(i + 1).append(" ");
+
+            for (int j = grid[i].length - 1; j >= 0; j--) {
+                strb.append("| ");
+
+                ChessPiece piece = grid[i][j];
+
+                if (piece != null) {
+                    strb.append(piece.getIcon()).append(" ");
+                } else {
+                    strb.append("  ");
+                }
+
+                if (j == 0) strb.append("|");
+            }
+
+            System.out.println(strb);
+        }
+
+        System.out.println(gridLine());
+
+        // Print files
+        StringBuilder filesStrb = new StringBuilder("  ");
+
+        for (char file = 'h'; file >= 'a'; file--) {
+            filesStrb.append("  ").append(file).append(" ");
+        }
+        System.out.println(filesStrb);
+    }
+
     private static String gridLine() {
         return "  " + "+---".repeat(8) + "+";
     }
