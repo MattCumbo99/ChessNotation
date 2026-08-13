@@ -2,28 +2,47 @@ package main.board;
 
 import main.piece.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Board {
     private final ChessPiece[][] grid = new ChessPiece[8][8];
 
     /**
-     * Retrieves the chess main.piece at the given position, or null if no main.piece
+     * Retrieves the chess piece at the given position, or null if no piece
      * is at the position.
      *
-     * @param pos Position on main.board.
-     * @return Chess main.piece at position, or null if empty square.
+     * @param pos Position on board.
+     * @return Chess piece at position, or null if empty square.
      */
     public ChessPiece getPieceAt(Position pos) {
         return grid[pos.rankIndex()][pos.fileIndex()];
     }
 
     /**
-     * Sets a chess main.piece at a given position.
+     * Sets a chess piece at a given position.
      *
-     * @param pos Position on main.board to set.
-     * @param piece Chess main.piece, or null to clear the square.
+     * @param pos Position on board to set.
+     * @param piece Chess piece, or null to clear the square.
      */
     public void setPieceAt(Position pos, ChessPiece piece) {
         grid[pos.rankIndex()][pos.fileIndex()] = piece;
+    }
+
+    /**
+     * Moves a piece from one square to another. The origin piece must exist.
+     *
+     * @param from Position of piece to move.
+     * @param to Destination.
+     */
+    public void movePiece(Position from, Position to) {
+        ChessPiece originPiece = getPieceAt(from);
+        if (originPiece == null) {
+            throw new IllegalArgumentException("No existing piece is at position " + from);
+        }
+
+        setPieceAt(from, null);
+        setPieceAt(to, originPiece);
     }
 
     public ChessPiece[] getPiecesOnFile(char file) {
@@ -41,7 +60,72 @@ public class Board {
     }
 
     /**
-     * Populates the main.board with the standard Chess starting position.
+     * Gets the material value comparison between white and black. A positive value indicates
+     * white has more material, where a negative value states black has more. A value of 0 indicates
+     * the board has equal material for both colors.
+     * <p/>
+     * Examples: 4 = White is up 4 points, -5 = Black is up 5 points.
+     *
+     * @return Exact material difference.
+     */
+    public int getMaterialDifference() {
+        int difference = 0;
+
+        for (ChessPiece[] row : grid) {
+            for (ChessPiece piece : row) {
+                if (piece != null) {
+                    if (piece.getColor() == PieceColor.WHITE) {
+                        difference += piece.getPieceValue();
+                    } else {
+                        difference -= piece.getPieceValue();
+                    }
+                }
+            }
+        }
+
+        return difference;
+    }
+
+    /**
+     * Converts this board data into a Hash Map, associating positions with the current piece.
+     *
+     * @return Map of board.
+     */
+    public Map<Position, ChessPiece> toMap() {
+        Map<Position, ChessPiece> boardMap = new HashMap<>();
+
+        for (char file = 'a'; file <= 'h'; file++) {
+            for (int rank = 1; rank <= 8; rank++) {
+                Position pos = new Position(file, rank);
+                ChessPiece piece = getPieceAt(pos);
+
+                if (piece != null) {
+                    boardMap.put(pos, piece);
+                }
+            }
+        }
+
+        return boardMap;
+    }
+
+    /**
+     * Initializes a board using map data.
+     *
+     * @param boardMap Map data to use.
+     * @return Board with populated pieces.
+     */
+    public static Board fromMap(Map<Position, ChessPiece> boardMap) {
+        Board board = new Board();
+
+        for (Map.Entry<Position, ChessPiece> entry : boardMap.entrySet()) {
+            board.setPieceAt(entry.getKey(), entry.getValue());
+        }
+
+        return board;
+    }
+
+    /**
+     * Populates the board with the standard Chess starting position.
      */
     public void initialize() {
         setPieceAt(
@@ -141,7 +225,7 @@ public class Board {
     }
 
     /**
-     * Prints this main.board to console.
+     * Prints this board to console.
      */
     public void print() {
         for (int i = grid.length - 1; i >= 0; i--) {

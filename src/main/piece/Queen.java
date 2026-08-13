@@ -50,4 +50,9 @@ public class Queen implements ChessPiece {
 
         return '♕';
     }
+
+    @Override
+    public int getPieceValue() {
+        return 9;
+    }
 }

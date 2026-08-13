@@ -3,6 +3,17 @@ package main.game;
 import main.board.Position;
 import main.piece.PieceType;
 
+/**
+ * A record holding specific information about a move requested from notation.
+ *
+ * @param moveType The type of move.
+ * @param pieceType Piece to move.
+ * @param destination Desired location of piece.
+ * @param fileHint Optional file specification of piece.
+ * @param rankHint Optional rank specification of piece.
+ * @param isCapture If this move is indicating a capture.
+ * @param promotion Desired promotion piece, if the move is indicating promotion.
+ */
 public record ParsedMove(
         MoveType moveType,
         PieceType pieceType,

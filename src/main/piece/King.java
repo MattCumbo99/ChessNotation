@@ -50,4 +50,9 @@ public class King implements ChessPiece {
 
         return '♔';
     }
+
+    @Override
+    public int getPieceValue() {
+        return 0;
+    }
 }

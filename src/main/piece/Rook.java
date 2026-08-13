@@ -50,4 +50,9 @@ public class Rook implements ChessPiece {
 
         return '♖';
     }
+
+    @Override
+    public int getPieceValue() {
+        return 5;
+    }
 }

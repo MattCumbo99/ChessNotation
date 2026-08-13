@@ -50,4 +50,9 @@ public class Pawn implements ChessPiece {
 
         return '♙';
     }
+
+    @Override
+    public int getPieceValue() {
+        return 1;
+    }
 }
