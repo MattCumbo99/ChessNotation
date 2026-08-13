@@ -1,18 +1,18 @@
-<center>
+<div align="center">
     <h1>Chess Notation Player</h1>
-</center>
+</div>
 
-<center>
+<div align="center">
     <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-</center>
+</div>
 
-<center>
+<div align="center">
     <img alt="Static Badge" src="https://img.shields.io/badge/status-in_development-blue">
-</center>
+</div>
 
-<center>
+<div align="center">
     A pure Java-based Chess player that uses notation to make moves.
-</center>
+</div>
 
 ## Overview
 This program plays through a standard 8x8 Chess game using only notational input via console.
