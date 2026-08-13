@@ -1,33 +1,47 @@
-package board;
+package main.board;
 
-import piece.*;
+import main.piece.*;
 
 public class Board {
     private final ChessPiece[][] grid = new ChessPiece[8][8];
 
     /**
-     * Retrieves the chess piece at the given position, or null if no piece
+     * Retrieves the chess main.piece at the given position, or null if no main.piece
      * is at the position.
      *
-     * @param pos Position on board.
-     * @return Chess piece at position, or null if empty square.
+     * @param pos Position on main.board.
+     * @return Chess main.piece at position, or null if empty square.
      */
     public ChessPiece getPieceAt(Position pos) {
         return grid[pos.rankIndex()][pos.fileIndex()];
     }
 
     /**
-     * Sets a chess piece at a given position.
+     * Sets a chess main.piece at a given position.
      *
-     * @param pos Position on board to set.
-     * @param piece Chess piece, or null to clear the square.
+     * @param pos Position on main.board to set.
+     * @param piece Chess main.piece, or null to clear the square.
      */
     public void setPieceAt(Position pos, ChessPiece piece) {
         grid[pos.rankIndex()][pos.fileIndex()] = piece;
     }
 
+    public ChessPiece[] getPiecesOnFile(char file) {
+        if (file < 'a' || file > 'h') {
+            throw new IllegalArgumentException("Invalid file: " + file);
+        }
+
+        ChessPiece[] pieces = new ChessPiece[grid.length];
+
+        for (int i = 0; i < grid.length; i++) {
+            pieces[i] = getPieceAt(new Position(file, i + 1));
+        }
+
+        return pieces;
+    }
+
     /**
-     * Populates the board with the standard Chess starting position.
+     * Populates the main.board with the standard Chess starting position.
      */
     public void initialize() {
         setPieceAt(
@@ -127,7 +141,7 @@ public class Board {
     }
 
     /**
-     * Prints this board to console.
+     * Prints this main.board to console.
      */
     public void print() {
         for (int i = grid.length - 1; i >= 0; i--) {

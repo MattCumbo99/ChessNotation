@@ -1,4 +1,4 @@
-package piece;
+package main.piece;
 
 public class Bishop implements ChessPiece {
 

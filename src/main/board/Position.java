@@ -1,5 +1,11 @@
-package board;
+package main.board;
 
+/**
+ * Contains file and rank information about a square on a main.board.
+ *
+ * @param file X-axis identifier (a-h)
+ * @param rank Y-axis identifier (1-8)
+ */
 public record Position(char file, int rank) {
     public Position {
         if (file < 'a' || file > 'h' || rank < 1 || rank > 8) {
@@ -19,9 +25,10 @@ public record Position(char file, int rank) {
     }
 
     /**
-     * Gets the array index of this position's rank.
+     * Gets the array index of this position's rank. A main.piece on the 8th rank would return
+     * an index of 7, and a main.piece on the 1st rank would return 0.
      *
-     * @return Rank - 1.
+     * @return Row index of main.board.
      */
     public int rankIndex() {
         return rank - 1;

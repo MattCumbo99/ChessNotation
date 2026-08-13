@@ -1,18 +1,18 @@
-package piece;
+package main.piece;
 
-public class Pawn implements ChessPiece {
+public class Rook implements ChessPiece {
 
     private final PieceColor pieceColor;
-    private final PieceType pieceType = PieceType.PAWN;
+    private final PieceType pieceType = PieceType.ROOK;
 
     private boolean hasMoved;
 
-    public Pawn(PieceColor color) {
+    public Rook(PieceColor color) {
         pieceColor = color;
         hasMoved = false;
     }
 
-    public Pawn(PieceColor color, boolean hasMoved) {
+    public Rook(PieceColor color, boolean hasMoved) {
         pieceColor = color;
         this.hasMoved = hasMoved;
     }
@@ -39,15 +39,15 @@ public class Pawn implements ChessPiece {
 
     @Override
     public String getNotationSymbol() {
-        return "";
+        return "R";
     }
 
     @Override
     public char getIcon() {
         if (pieceColor == PieceColor.BLACK) {
-            return '♟';
+            return '♜';
         }
 
-        return '♙';
+        return '♖';
     }
 }

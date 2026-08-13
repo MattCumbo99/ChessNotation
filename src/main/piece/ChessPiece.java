@@ -1,4 +1,4 @@
-package piece;
+package main.piece;
 
 public interface ChessPiece {
     PieceColor getColor();

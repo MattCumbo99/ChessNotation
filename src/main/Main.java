@@ -1,4 +1,4 @@
-import game.ChessGame;
+import main.game.ChessGame;
 
 void main() {
     ChessGame game = new ChessGame();

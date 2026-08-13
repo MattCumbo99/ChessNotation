@@ -1,6 +1,6 @@
-package game;
+package main.game;
 
-import board.Board;
+import main.board.Board;
 
 public class ChessGame {
     private final Board board;

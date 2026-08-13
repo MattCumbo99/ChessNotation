@@ -1,4 +1,4 @@
-package game;
+package main.game;
 
 public class InvalidNotationException extends RuntimeException {
     public InvalidNotationException(String message) {
