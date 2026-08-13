@@ -160,86 +160,86 @@ public class Board {
     public void initialize() {
         setPieceAt(
                 new Position('a', 1),
-                new Rook(PieceColor.WHITE)
+                ChessPiece.rook(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('a', 8),
-                new Rook(PieceColor.BLACK)
+                ChessPiece.rook(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('b', 1),
-                new Knight(PieceColor.WHITE)
+                ChessPiece.knight(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('b', 8),
-                new Knight(PieceColor.BLACK)
+                ChessPiece.knight(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('c', 1),
-                new Bishop(PieceColor.WHITE)
+                ChessPiece.bishop(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('c', 8),
-                new Bishop(PieceColor.BLACK)
+                ChessPiece.bishop(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('d', 1),
-                new Queen(PieceColor.WHITE)
+                ChessPiece.queen(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('d', 8),
-                new Queen(PieceColor.BLACK)
+                ChessPiece.queen(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('e', 1),
-                new King(PieceColor.WHITE)
+                ChessPiece.king(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('e', 8),
-                new King(PieceColor.BLACK)
+                ChessPiece.king(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('f', 1),
-                new Bishop(PieceColor.WHITE)
+                ChessPiece.bishop(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('f', 8),
-                new Bishop(PieceColor.BLACK)
+                ChessPiece.bishop(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('g', 1),
-                new Knight(PieceColor.WHITE)
+                ChessPiece.knight(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('g', 8),
-                new Knight(PieceColor.BLACK)
+                ChessPiece.knight(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('h', 1),
-                new Rook(PieceColor.WHITE)
+                ChessPiece.rook(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('h', 8),
-                new Rook(PieceColor.BLACK)
+                ChessPiece.rook(PieceColor.BLACK)
         );
 
         // Pawn setup
         for (char file = 'a'; file <= 'h'; file++) {
             setPieceAt(
                     new Position(file, 2),
-                    new Pawn(PieceColor.WHITE)
+                    ChessPiece.pawn(PieceColor.WHITE)
             );
 
             setPieceAt(
                     new Position(file, 7),
-                    new Pawn(PieceColor.BLACK)
+                    ChessPiece.pawn(PieceColor.BLACK)
             );
         }
 

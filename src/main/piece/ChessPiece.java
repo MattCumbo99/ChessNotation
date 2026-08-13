@@ -1,27 +1,91 @@
 package main.piece;
 
-public interface ChessPiece {
-    PieceColor getColor();
+import static main.piece.PieceColor.WHITE;
+import static main.piece.PieceType.*;
 
-    PieceType getPieceType();
+public class ChessPiece {
 
-    boolean hasMoved();
+    private final PieceColor color;
+    private final PieceType type;
 
-    void setHasMoved(boolean hasMoved);
+    private final int pieceValue;
 
-    String getNotationSymbol();
+    private boolean hasMoved = false;
+
+    private ChessPiece(PieceColor color, PieceType type, int pieceValue) {
+        this.type = type;
+        this.color = color;
+        this.pieceValue = pieceValue;
+    }
+
+    public int getPieceValue() {
+        return pieceValue;
+    }
+
+    public PieceColor getColor() {
+        return color;
+    }
+
+    public PieceType getPieceType() {
+        return type;
+    }
 
     /**
-     * Gets the icon associated with this piece.
+     * Gets this piece represented as a displayable icon.
      *
-     * @return Unicode character.
+     * @return Piece icon.
      */
-    char getIcon();
+    public char getIcon() {
+        if (color == WHITE) {
+            return switch (type) {
+                case KING -> '♔';
+                case QUEEN -> '♕';
+                case ROOK -> '♖';
+                case BISHOP -> '♗';
+                case KNIGHT -> '♘';
+                case PAWN -> '♙';
+            };
+        } else {
+            return switch (type) {
+                case KING -> '♚';
+                case QUEEN -> '♛';
+                case ROOK -> '♜';
+                case BISHOP -> '♝';
+                case KNIGHT -> '♞';
+                case PAWN -> '♟';
+            };
+        }
+    }
 
-    /**
-     * Gets the material value of this piece. Kings are worth 0.
-     *
-     * @return Material value.
-     */
-    int getPieceValue();
+    public boolean hasMoved() {
+        return hasMoved;
+    }
+
+    public void setMoved() {
+        this.hasMoved = true;
+    }
+
+    public static ChessPiece king(PieceColor color) {
+        return new ChessPiece(color, KING, 0);
+    }
+
+    public static ChessPiece queen(PieceColor color) {
+        return new ChessPiece(color, QUEEN, 9);
+    }
+
+    public static ChessPiece rook(PieceColor color) {
+        return new ChessPiece(color, ROOK, 5);
+    }
+
+    public static ChessPiece bishop(PieceColor color) {
+        return new ChessPiece(color, BISHOP, 3);
+    }
+
+    public static ChessPiece knight(PieceColor color) {
+        return new ChessPiece(color, KNIGHT, 3);
+    }
+
+    public static ChessPiece pawn(PieceColor color) {
+        return new ChessPiece(color, PAWN, 1);
+    }
 }
