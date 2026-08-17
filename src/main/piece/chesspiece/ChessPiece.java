@@ -54,15 +54,13 @@ public class ChessPiece {
     }
 
     /**
-     * Gets a shallow list of possible destinations this piece can move to on the given board at the
-     * specified position. A move is considered valid if the correct piece is at the origin and the
-     * move target contains either an enemy piece or no piece.
-     * <p/>
-     * An empty list signifies no legal moves.
+     * Gets a shallow list of potential positions this piece can move to. Advanced concepts
+     * like pins are ignored.
      *
      * @param origin Position of this piece.
      * @param board Board to reference.
      * @return List of pseudo moves.
+     * @see MoveStrategy#getValidMoves(Position, Board)
      */
     public List<Position> getPseudoLegalMoves(Position origin, Board board) {
         return moveStrategy.getValidMoves(origin, board);

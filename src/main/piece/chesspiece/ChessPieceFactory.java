@@ -10,6 +10,9 @@ import static main.piece.PieceType.BISHOP;
 import static main.piece.PieceType.KNIGHT;
 import static main.piece.PieceType.PAWN;
 
+/**
+ * Factory for constructing Chess piece objects.
+ */
 public class ChessPieceFactory {
     private ChessPieceFactory() {}
 
@@ -34,11 +37,6 @@ public class ChessPieceFactory {
     }
 
     public static ChessPiece pawn(PieceColor color) {
-        MoveStrategy pawnStrategy = (origin, board) -> {
-            // TODO
-            return List.of();
-        };
-
-        return new ChessPiece(color, PAWN, 1, pawnStrategy);
+        return new ChessPiece(color, PAWN, 1, new PawnStrategy(color));
     }
 }
