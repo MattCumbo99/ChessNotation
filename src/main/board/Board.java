@@ -1,6 +1,8 @@
 package main.board;
 
 import main.piece.*;
+import main.piece.chesspiece.ChessPiece;
+import main.piece.chesspiece.ChessPieceFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -160,86 +162,86 @@ public class Board {
     public void initialize() {
         setPieceAt(
                 new Position('a', 1),
-                ChessPiece.rook(PieceColor.WHITE)
+                ChessPieceFactory.rook(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('a', 8),
-                ChessPiece.rook(PieceColor.BLACK)
+                ChessPieceFactory.rook(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('b', 1),
-                ChessPiece.knight(PieceColor.WHITE)
+                ChessPieceFactory.knight(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('b', 8),
-                ChessPiece.knight(PieceColor.BLACK)
+                ChessPieceFactory.knight(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('c', 1),
-                ChessPiece.bishop(PieceColor.WHITE)
+                ChessPieceFactory.bishop(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('c', 8),
-                ChessPiece.bishop(PieceColor.BLACK)
+                ChessPieceFactory.bishop(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('d', 1),
-                ChessPiece.queen(PieceColor.WHITE)
+                ChessPieceFactory.queen(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('d', 8),
-                ChessPiece.queen(PieceColor.BLACK)
+                ChessPieceFactory.queen(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('e', 1),
-                ChessPiece.king(PieceColor.WHITE)
+                ChessPieceFactory.king(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('e', 8),
-                ChessPiece.king(PieceColor.BLACK)
+                ChessPieceFactory.king(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('f', 1),
-                ChessPiece.bishop(PieceColor.WHITE)
+                ChessPieceFactory.bishop(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('f', 8),
-                ChessPiece.bishop(PieceColor.BLACK)
+                ChessPieceFactory.bishop(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('g', 1),
-                ChessPiece.knight(PieceColor.WHITE)
+                ChessPieceFactory.knight(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('g', 8),
-                ChessPiece.knight(PieceColor.BLACK)
+                ChessPieceFactory.knight(PieceColor.BLACK)
         );
 
         setPieceAt(
                 new Position('h', 1),
-                ChessPiece.rook(PieceColor.WHITE)
+                ChessPieceFactory.rook(PieceColor.WHITE)
         );
         setPieceAt(
                 new Position('h', 8),
-                ChessPiece.rook(PieceColor.BLACK)
+                ChessPieceFactory.rook(PieceColor.BLACK)
         );
 
         // Pawn setup
         for (char file = 'a'; file <= 'h'; file++) {
             setPieceAt(
                     new Position(file, 2),
-                    ChessPiece.pawn(PieceColor.WHITE)
+                    ChessPieceFactory.pawn(PieceColor.WHITE)
             );
 
             setPieceAt(
                     new Position(file, 7),
-                    ChessPiece.pawn(PieceColor.BLACK)
+                    ChessPieceFactory.pawn(PieceColor.BLACK)
             );
         }
 

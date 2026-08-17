@@ -43,7 +43,7 @@ public record Position(char file, int rank) {
      * @param deltaRank Rank offset.
      * @return Optional position, populated if within bounds of standard board.
      */
-    public Optional<Position> add(int deltaFile, int deltaRank) {
+    public Optional<Position> offset(int deltaFile, int deltaRank) {
         char newFile = (char) (this.file + deltaFile);
         int newRank = this.rank + deltaRank;
 

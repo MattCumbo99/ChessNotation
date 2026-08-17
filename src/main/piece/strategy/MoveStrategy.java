@@ -1,11 +1,10 @@
-package main.piece;
+package main.piece.strategy;
 
 import main.board.Board;
 import main.board.Position;
 
 import java.util.List;
 
-@FunctionalInterface
 public interface MoveStrategy {
-    List<Position> calculate(Position origin, Board board);
+    List<Position> getValidMoves(Position origin, Board board);
 }
